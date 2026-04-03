@@ -1,4 +1,4 @@
-##Monthly Competitive Intelligence Brief
+Monthly Competitive Intelligence Brief
 
 > **Cadence:** Last Wednesday of month, 8:00 AM CT
 > **Runtime:** Claude Cowork (Scheduled Task)
