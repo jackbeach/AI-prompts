@@ -237,6 +237,7 @@ See [LICENSE](./LICENSE) for full details.
 
 **Jack Beach**  
 jackwingood@gmail.com
+
 [@jackbeach](https://x.com/jack_beach) on X
 
 These frameworks are built with Claude (Anthropic). Extracted from 12+ months of production use at [companies], open-sourced to help other leaders and operators stay ahead.
