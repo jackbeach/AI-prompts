@@ -1,62 +1,67 @@
 # AI-prompts
 
-Production prompts I run on schedules to automate intelligence work. Two here, both designed around signal-over-noise rather than data dumps.
+Production prompts I run on schedules to automate intelligence work.
 
-## The prompts
+The repo has two artifacts: a four-prompt operating cadence designed to share attention across a week of product leadership work, and a standalone monthly competitive intelligence brief.
 
-### Daily intelligence brief
+## What's here
 
-[`daily-intelligence-brief/`](./daily-intelligence-brief)
+### Weekly operating cadence
 
-A daily prompt designed to put a leader three to five days ahead of their inbox rather than one day behind it. The shape: scan a configurable set of operational sources (calendar, ticket systems, analytics, comms tools, prior briefs), surface only what changes the plan for today, deliver as five executable actions with a 90-second read budget.
+[`weekly-operating-cadence/`](./weekly-operating-cadence)
 
-The brief includes a forecast section that uses the last 5–7 days of briefs as a pattern base — what's been carrying over, where velocity is tracking, which decisions keep getting deferred. Predictions grounded in pattern data are the highest-value output; speculation without history isn't allowed.
+Four prompts that compose into one operating system: a daily intelligence brief, a Monday prep that sets the week's frame, a Wednesday strategic review that catches drift before it becomes a quarter-end surprise, and a Friday wrap that closes the week's loop. Each prompt reads from the others rather than rescanning raw sources, which is what makes them work as a system instead of four parallel automations.
 
-The opinionated parts: forward-looking signals beat status updates, "all clear" is a first-class output, every action gets a complete draft, omitted sections beat empty headers. Most morning brief tools fail by reporting too much. This one fails — deliberately — by saying less.
+The daily brief is the foundation — read its README and INTELLIGENCE-PRINCIPLES first if you're new to the cadence. The other three prompts inherit its principles and structure.
 
 ### Competitive intelligence brief
 
 [`competitive-intelligence-brief/`](./competitive-intelligence-brief)
 
-A monthly scheduled task that scans eight categories of public signals — pricing pages, hiring postings, integration marketplaces, review sites, regulatory filings, M&A activity, partnership announcements, and product changelogs — and triangulates convergent moves across them. The output is a focused report on what competitors are actually doing, what's likely to change product strategy, and where opportunities for differentiation are opening up.
+A monthly scheduled task that scans eight categories of public signals — pricing pages, hiring postings, integration marketplaces, review sites, regulatory filings, M&A activity, partnership announcements, product changelogs — and triangulates convergent moves across them. Built around weighted evidence rather than news aggregation. Single signals are noise; the same signal across three sources is structural.
 
-The trick is the triangulation, not the scanning. Any single signal is noise; the same signal showing up across three sources is structural. The prompt is built to weight convergent evidence, surface confidence levels, and ignore one-off chatter.
+This one is independent of the weekly cadence. It runs on its own monthly schedule and produces its own output.
 
 ## Design philosophy
 
-A few principles shape both prompts.
+A few principles shape everything in the repo:
 
 **Intelligence is prediction, not reporting.** A status update tells you what happened. An intelligence brief tells you what's about to matter.
 
-**Synthesis is the work.** The model can scan and triangulate; it can't tell you what matters in your context. The brief gets you to a decision point faster — it doesn't make the decision.
+**Synthesis is the work.** The model can scan and triangulate; it can't tell you what matters in your context. The prompt gets you to a decision point faster — it doesn't make the decision.
 
 **Constraints create clarity.** A 90-second read with five actions max forces prioritization. Loosen either constraint and the output devolves into the data dumps these prompts exist to prevent.
 
 **Diffs over state.** Don't tell me what's still true. Tell me what changed.
 
-**"All clear" is a real answer.** If nothing today earns a brief, the brief is permitted to be three lines long. The pressure to fill space corrupts every recurring report.
+**"All clear" is a real answer.** If nothing earns a brief, the brief is permitted to be three lines long. The pressure to fill space corrupts every recurring report.
 
 ## How to use
 
-Both prompts are written for Claude with scheduled execution in mind. Drop in your own data sources — Notion databases, calendar accounts, Slack channels, ticket systems — and adjust the role context at the top to match how you work. The structure does the work; the substance is yours.
+The prompts are written for Claude with scheduled execution in mind. Drop in your own data sources — Notion databases, calendar accounts, Slack channels, ticket systems — and adjust the role context at the top to match how you work. The structure does the work; the substance is yours.
 
 These are templates, not products. Adapt them.
 
-If you're picking one to start with: the daily intelligence brief is the more foundational of the two. The competitive intelligence brief is more self-contained and easier to drop in if you don't want to commit to daily scheduling.
+If you're picking one to start with: start with the daily intelligence brief inside the weekly operating cadence. It's the most foundational, and the other three cadence prompts depend on briefs accumulating before they produce real signal. The competitive intelligence brief is more self-contained and easier to drop in if you don't want to commit to daily scheduling.
 
 ## Repo structure
 
 ```
 AI-prompts/
-├── README.md                          (this file)
+├── README.md                           (this file)
 ├── LICENSE
-├── daily-intelligence-brief/
+├── weekly-operating-cadence/
 │   ├── README.md
-│   ├── TEMPLATE.md
-│   ├── IMPLEMENTATION.md
-│   ├── DATA-SOURCES.md
-│   ├── INTELLIGENCE-PRINCIPLES.md
-│   └── EXAMPLE-BRIEF.md
+│   ├── daily-brief/
+│   │   ├── README.md
+│   │   ├── TEMPLATE.md
+│   │   ├── IMPLEMENTATION.md
+│   │   ├── INTELLIGENCE-PRINCIPLES.md
+│   │   ├── DATA-SOURCES.md
+│   │   └── EXAMPLE-BRIEF.md
+│   ├── monday-prep/
+│   ├── wednesday-review/
+│   └── friday-wrap/
 └── competitive-intelligence-brief/
     ├── README.md
     └── competitive-intelligence.md
